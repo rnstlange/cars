@@ -1,4 +1,13 @@
-RewriteEngine On
+Options +FollowSymlinks
+RewriteEngine on
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^api/(.*)$ /api.php
+RewriteCond %{REQUEST_URI} !^/api/(.*)$
+RewriteCond %{REQUEST_URI} !^/public/(.*)$
+RewriteRule ^(.*)$ /index.html [L,NC]
+
+RewriteRule ^/api/(.*)$ /api.php [NC,L]
+
+RewriteRule ^/public/(.*)$ /public/$1 [NC,L]
+Options -Indexes

@@ -1,6 +1,6 @@
 <?php
 session_start();
-set_include_path('.');
+set_include_path('../');
 
 include 'app/config.php';
 include 'app/CarsApi.php';
