@@ -47,7 +47,7 @@ class Cars
     }
 
     public function getAll(){
-        $result = self::$db->query('SELECT c.brand, c.model, c.year, o.full_name FROM cars c LEFT JOIN owners o on c.owner = o.id;', MYSQLI_USE_RESULT);
+        $result = self::$db->query('SELECT c.id, c.brand, c.model, c.year, o.full_name FROM cars c LEFT JOIN owners o on c.owner = o.id;', MYSQLI_USE_RESULT);
         $value = $result->fetch_all(MYSQLI_ASSOC);
         $result->close();
         return $value;

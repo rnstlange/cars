@@ -16,7 +16,14 @@ class CarsApi extends Api
 
     public function createAction()
     {
-        $cars = new Cars();
-
+        $full_name = $this->requestParams['full_name'] ?? false;
+        $brand = $this->requestParams['brand'] ?? '';
+        $model = $this->requestParams['model'] ?? '';
+        $year = $this->requestParams['year'] ?? '';
+        if ($brand && $model && $year) {
+            $cars = new Cars();
+            $cars->create($brand, $model, $year, $full_name);
+        }
+        header('Location: /');
     }
 }
