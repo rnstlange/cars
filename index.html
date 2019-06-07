@@ -27,7 +27,53 @@
 
 <body>
 
-<h1>Oh, hello there!</h1>
+<nav>
+    <ul>
+        <li><a href="javascript:void(8)" class="show-car-list">Список машин</a></li>
+        <li><a href="javascript:void(8)" class="show-add-car">Добавить машину</a></li>
+    </ul>
+</nav>
+
+<div class="content">
+    <div class="car-list">
+        <h2>Машины:</h2>
+        <table class="cars">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ФИО владельца</th>
+                    <th>Брэнд</th>
+                    <th>Модель</th>
+                    <th>Год выпуска</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="add-car">
+        <form action="/api/cars" method="post" target="_parent" class="add-car-form">
+            <p>ФИО: </p>
+            <label>
+                <input type="text" name="full_name">
+            </label>
+            <p>Брэнд: </p>
+            <label>
+                <input type="text" name="brand">
+            </label>
+            <p>Модель: </p>
+            <label>
+                <input type="text" name="model">
+            </label>
+            <p>Год: </p>
+            <label>
+                <input type="number" min="1900" max="2099" step="1" value="2019" name="year">
+            </label>
+            <button class="add-car-button" value="Отправить">Отправить</button>
+        </form>
+    </div>
+</div>
 
 <script src="public/js/jquery.min.js"></script>
 <script src="public/js/scripts.js"></script>
